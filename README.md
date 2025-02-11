@@ -1,10 +1,10 @@
-CLONE THE REPOSITORY FROM THE URL IN VS CODE
-OPEN NEW TERMINAL
-Write "npm istall" in the terminal.
-After all the node dependencies are installed 
-Write npm dev run
-On successfull execution with 0 vulnerabilities, you will be able to see the localhost browser link.
-click o+enter to directly open the browser.
+1.CLONE THE REPOSITORY FROM THE URL IN VS CODE
+2.OPEN NEW TERMINAL
+3.Write "npm istall" in the terminal.
+4.After all the node dependencies are installed 
+5.Write npm dev run
+6.On successfull execution with 0 vulnerabilities, you will be able to see the localhost browser link.
+7.click o+enter to directly open the browser.
 you will be able to see the running website.
 # React + Vite
 
