@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,6 +23,8 @@ const Signup = () => {
       const data = await res.json();
       if (res.ok) {
         setMessage("✅ Signup Successful! Please log in.");
+        localStorage.setItem("username", formData.name); // Store name in localStorage
+        navigate("/home"); // Redirect to home page
       } else {
         setMessage(`❌ ${data.message}`);
       }
@@ -77,9 +80,8 @@ const Signup = () => {
           </button>
         </form>
 
-        <Link to="/login" className="text-center hover:underline ">
-        <p className="mt-3">already have an account, Signup</p>
-        
+        <Link to="/login" className="text-center hover:underline">
+          <p className="mt-3">Already have an account? Log in</p>
         </Link>
       </div>
     </div>

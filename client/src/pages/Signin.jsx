@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Signin = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
-  const navigate = useNavigate(); // Hook to navigate after login
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,9 +22,10 @@ const Signin = () => {
 
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem("token", data.token); // Save JWT token
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.user.name); // Store name in localStorage
         setMessage("✅ Login Successful!");
-        setTimeout(() => navigate("/home"), 1000); // Redirect after 1 second
+        setTimeout(() => navigate("/home"), 1000);
       } else {
         setMessage(`❌ ${data.message}`);
       }
@@ -68,7 +69,7 @@ const Signin = () => {
             Sign In
           </button>
         </form>
-        <Link to="/register" className="text-center hover:underline ">
+        <Link to="/register" className="text-center hover:underline">
           <p className="mt-3">Don't have an account? Signup</p>
         </Link>
       </div>
